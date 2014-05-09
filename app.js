@@ -22,6 +22,7 @@ app.use(express.bodyParser());
 //routes
 app.get('/', index.view);
 app.get('/login', index.login);
+app.get('/googleLogin', index.googleLogin);
 app.get('/loggedin', index.loggedin);
 
 //set environment ports and start application

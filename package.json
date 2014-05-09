@@ -12,6 +12,7 @@
     "mongoose": "*",
     "passport": "*",
     "googleapis": "*",
+    "fbgraph": "*",
     "dotenv": "*"
   },
   "engines": {
