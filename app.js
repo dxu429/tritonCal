@@ -9,21 +9,22 @@ var app = express();
 var index = require('./routes/index');
 
 //database setup - uncomment to set up your database
-//var mongoose = require('mongoose');
-//mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/DATABASE1);
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGOLAB_URL || 'mongodb://localhost/tritonCal');
 
 //Configures the Template engine
 app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.cookieParser());
+app.use(express.session({secret: '1234567890QWERTY'}));
 app.use(express.bodyParser());
 
 //routes
 app.get('/', index.view);
 app.get('/login', index.login);
 app.get('/googleLogin', index.googleLogin);
-app.get('/loggedin', index.loggedin);
 
 //set environment ports and start application
 app.set('port', process.env.PORT || 3000);
