@@ -25,6 +25,7 @@ app.use(express.bodyParser());
 app.get('/', index.view);
 app.get('/login', index.login);
 app.get('/googleLogin', index.googleLogin);
+app.get('/app', index.tritonCal);
 
 //set environment ports and start application
 app.set('port', process.env.PORT || 3000);
