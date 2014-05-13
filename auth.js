@@ -41,7 +41,6 @@ googleapis
   .discover('oauth2', 'v2')
   .execute(function(err, clients) {
     if(!err) {
-      console.log(clients);
       exports.cal = clients.calendar;
       exports.oauth = clients.oauth2;
       exports.client = oauth2Client;
